@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div>
+        <nav class="  navbar navbar-expand-lg  navbar-light bg " style="font-weight:bold">
+            <a class="navbar-brand ortala" routerLink="/">
+                <div class="row">
+                    <img class="mt-3" src="..\assets\logos\banner.png" alt="logo">
+                    <p style="font-weight:bold;color:black;font-family: Sans-serif;font-size:30px;" class=" mt-5">yLibrary</p>
+                </div>
+            </a>
+        </nav>
+        <div class=" navbar navbar-expand-lg  navbar-light bg2 border-bottom" style="font-weight:bold;">
+            <ul class="nav navbar-nav nav-tabs">
+                <li routerLinkActive="active">
+                    <a routerLink="/" class="nav-link ">Anasayfa</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a routerLink="/kitaplar" class="nav-link ">Kitaplar</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a routerLink="/yazarlar" class="nav-link  ">Yazarlar</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a routerLink="/yayinlar" class="nav-link">Yayınlar</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav nav-tabs ml-auto">
+                <ng-template [ngIf]="!authService.isAutheticated() && !authService.isSocialAuthenticated()" >
+                    <li routerLinkActive="active">
+                        <a routerLink="/signup" class="nav-link mr-auto">Kayıt Ol</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/signin" class="nav-link mr-auto">Oturum Aç</a>
+                    </li>
+                </ng-template>
+                <li routerLinkActive="active">
+                    <a *ngIf="authService.isAutheticated() || authService.isSocialAuthenticated()" (click)="onLogout()" style="cursor:pointer" class="nav-link mr-auto">Çıkış Yap</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="col-md-12">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<div class="container-fluid mt-5" style="height:20px;">
+</div>

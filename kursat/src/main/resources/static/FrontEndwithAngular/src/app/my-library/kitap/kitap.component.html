@@ -1,0 +1,18 @@
+<!--  [routerLink]="[i]" ile "../i" şeklindeki uri ya yönlendirir.
+*ngFor="let yazar of yazarlar;let i=index" kısmındaki i verisine ise seçtiğimiz nesnenin indexini atadık.
+Yani biz bir nesneye tıkladığımızda şayet o nesneye ait index 3 ise bizi "../3" URI 'na yönlendirecektir.'  -->
+
+<hr>
+<div class="container">
+    <div class="row col-md-12" >
+        <div  [routerLink]="[i]" class="card mr-1 mb-1  " style="width: 250px;height:450px;" *ngFor="let kitap of kitaplar;let i=index"  >
+            <img class="card-img-top" src="../assets/logos/resim.png" style="width: 200px;margin-left:25px;margin-top:10px;" alt="Card image cap">
+            <div class="card-body" >               
+                <h6 style="font-size:10px;">ISBN numarası:{{kitap.isbnNo}}</h6>
+                <h5 class="card-title">{{kitap.kitapAdi}}</h5>      
+                <p class="card-text"><span style="font-weight:bold">Yazar :</span>    {{kitap.yazarAdi}}</p>
+                <p> <span style="font-weight:bold">Yayınevi :</span> {{kitap.yayinEviAdi}}</p>
+            </div>
+        </div>
+    </div>
+</div>

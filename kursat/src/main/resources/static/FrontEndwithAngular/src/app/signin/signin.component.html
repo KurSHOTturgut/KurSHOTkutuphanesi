@@ -1,0 +1,35 @@
+<form (ngSubmit)="onSignin(f)" #f="ngForm">
+
+  <div class="ortala col-md-6">
+    <h5 class="ml-3 text-center">Oturum açmak için email ve parolanızı giriniz.</h5>
+    <hr>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" class="form-control" required ngModel>
+    </div>
+    <div class="form-group">
+      <label for="password">Parola</label>
+      <input type="password" name="password" id="password" class="form-control" required ngModel>
+    </div>
+
+    <button class="btn btn-success btn-block border" type="submit" [disabled]="!f.valid ">Oturum Aç</button>
+    <div class="mt-2 mb-2">
+        <button (click)="socialSignIn('facebook')"
+        class="facebook btn btn-primary btn-block border">Facebook ile Giriş</button>
+    </div>
+    
+    <div>
+        <button  (click)="socialSignIn('google')" 
+         class="google btn btn-block border">Google ile Giriş</button>
+    </div>
+   
+    <hr>
+
+    <h5 class="text-center">Hesabınız yok mu?</h5>
+    <hr>
+    <button (click)="redirectToSignUp()" class="btn btn-primary border btn-block">Kaydolun</button>
+
+
+
+  </div>
+</form>
